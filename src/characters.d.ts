@@ -1,4 +1,5 @@
 export interface Characters {
+    // eslint-disable-next-line no-use-before-define
     data: Data;
 }
 
@@ -7,93 +8,78 @@ export interface Data {
     limit: number;
     total: number;
     count: number;
+    // eslint-disable-next-line no-use-before-define
     results: Results[];
 }
 
 export interface Results {
     id: number;
-    digitalId: number;
-    title: string;
-    issueNumber: number;
-    variantDescription: string;
+    name: string;
     description: string;
     modified: string;
-    isbn: string;
-    upc: string;
-    diamondCode: string;
-    ean: string;
-    issn: string;
-    format: string;
-    pageCount: number;
-    textObjects: any[];
-    resourceURI: string;
-    urls: Url[];
-    series: Series;
-    variants: Variant[];
-    collections: any[];
-    collectedIssues: any[];
-    dates: {
-        type: string;
-        date: string;
-    }[];
-    prices: {
-        type: string;
-        price: number;
-    }[];
+    // eslint-disable-next-line no-use-before-define
     thumbnail: Thumbnail;
-    images: any[];
-    creators: {
+    resourceURI: string;
+    comics: {
         available: number;
         collectionURI: string;
-        items: Creator[];
+        // eslint-disable-next-line no-use-before-define
+        items: Comic[];
         returned: number;
     };
-    characters: {
-        available: number;
-        collectionURI: string;
-        items: any[];
-        returned: number;
-    };
-    stories: {
-        available: number;
-        collectionURI: string;
-        items: {
-            resourceURI: string;
-            name: string;
-            type: string;
-        }[];
-            returned: number;
-        };
-    events: {
-        available: number;
-        collectionURI: string;
-        items: any[];
-        returned: number;
-    };
-}
-
-export interface Url {
-    type: string;
-    url: string;
-}
-
-export interface Series {
-    resourceURI: string;
-    name: string;
-}
-
-export interface Variant {
-    resourceURI: string;
-    name: string;
-}
-
-export interface Creator {
-    resourceURI: string;
-    name: string;
-    role: string;
+    // eslint-disable-next-line no-use-before-define
+    series: Series;
+    // eslint-disable-next-line no-use-before-define
+    stories: Stories;
+    // eslint-disable-next-line no-use-before-define
+    events: Events;
+    // eslint-disable-next-line no-use-before-define
+    urls: Url[];
 }
 
 export interface Thumbnail {
     path: string;
     extension: string;
+}
+
+export interface Comic {
+    resourceURI: string;
+    name: string;
+}
+
+interface Series {
+    available: number;
+    collectionURI: string;
+    items: Comic[];
+    returned: number;
+}
+
+interface Story {
+    resourceURI: string;
+    name: string;
+    type: string;
+}
+
+interface Stories {
+    available: number;
+    collectionURI: string;
+    items: Story[];
+    returned: number;
+}
+
+interface Event {
+    resourceURI: string;
+    name: string;
+}
+
+interface Events {
+    available: number;
+    collectionURI: string;
+    items: Event[];
+    returned: number;
+}
+
+interface Url {
+    type: string;
+    url: string;
 }

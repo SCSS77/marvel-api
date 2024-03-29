@@ -9,9 +9,13 @@ interface Props {
 function CharactersList ({ items }:Props) {
   return (
     <>
-      <h2>{items.title}</h2>
-      <p>ID: <span>{items.id}</span></p>
-      <Image src={items.thumbnail} alt='Marvel character' />
+      <h2>{items.name}</h2>
+      <Image
+        src={`${items.thumbnail.path}.${items.thumbnail.extension}`}
+        alt={items.name}
+        height={400}
+        width={500}
+      />
     </>
   )
 }
