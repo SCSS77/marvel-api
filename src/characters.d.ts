@@ -1,30 +1,16 @@
-interface Url {
-    type: string;
-    url: string;
+export interface Characters {
+    data: Data;
 }
 
-interface Series {
-    resourceURI: string;
-    name: string;
+export interface Data {
+    offset: number;
+    limit: number;
+    total: number;
+    count: number;
+    results: Results[];
 }
 
-interface Variant {
-    resourceURI: string;
-    name: string;
-}
-
-interface Creator {
-    resourceURI: string;
-    name: string;
-    role: string;
-}
-
-interface Thumbnail {
-    path: string;
-    extension: string;
-}
-
-interface Item {
+export interface Results {
     id: number;
     digitalId: number;
     title: string;
@@ -86,31 +72,28 @@ interface Item {
     };
 }
 
-interface Data {
-    offset: number;
-    limit: number;
-    total: number;
-    count: number;
-    results: Item[];
+export interface Url {
+    type: string;
+    url: string;
 }
 
-interface MarvelResponse {
-    code: number;
-    status: string;
-    copyright: string;
-    attributionText: string;
-    attributionHTML: string;
-    etag: string;
-    data: Data;
+export interface Series {
+    resourceURI: string;
+    name: string;
 }
 
-export {
-  Url,
-  Series,
-  Variant,
-  Creator,
-  Thumbnail,
-  Item,
-  Data,
-  MarvelResponse
+export interface Variant {
+    resourceURI: string;
+    name: string;
+}
+
+export interface Creator {
+    resourceURI: string;
+    name: string;
+    role: string;
+}
+
+export interface Thumbnail {
+    path: string;
+    extension: string;
 }
