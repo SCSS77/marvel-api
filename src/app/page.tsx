@@ -1,7 +1,7 @@
 'use client'
 
 import CharactersList from '@/components/charactersList'
-import useCharacters from '@/hook/useCharacters'
+import useCharacters from '@/hooks/UseCharacters'
 
 export default function HomePage () {
   const { data, loading } = useCharacters()
