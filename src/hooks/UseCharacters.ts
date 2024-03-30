@@ -1,23 +1,23 @@
 import getCharactersList from '@/services/getCharactersList'
-import { Results, Characters } from '@/characters'
 import { useEffect, useState } from 'react'
 
-export default function useCharacters () {
-  const [charactersResults, setCharactersResults] = useState<Results[]| null>(null)
+export default function useCharacters (searchQuery) {
+  const [charactersResults, setCharactersResults] = useState(null)
 
   useEffect(() => {
     async function fetchData () {
       try {
-        const data: Characters = await getCharactersList()
+        const data = await getCharactersList(searchQuery)
         setCharactersResults(data.data.results)
       } catch (error) {
         console.log(error)
       }
     }
     fetchData()
-  }, [])
+  }, [searchQuery])
 
   return {
-    data: charactersResults
+    data: charactersResults,
+    loading: !charactersResults
   }
 }
