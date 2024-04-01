@@ -47,39 +47,49 @@ export interface Comic {
     name: string;
 }
 
-interface Series {
+export interface Series {
     available: number;
     collectionURI: string;
     items: Comic[];
     returned: number;
 }
 
-interface Story {
+export interface Story {
     resourceURI: string;
     name: string;
     type: string;
 }
 
-interface Stories {
+export interface Stories {
     available: number;
     collectionURI: string;
     items: Story[];
     returned: number;
 }
 
-interface Event {
+export interface Event {
     resourceURI: string;
     name: string;
 }
 
-interface Events {
+export interface Events {
     available: number;
     collectionURI: string;
     items: Event[];
     returned: number;
 }
 
-interface Url {
+export interface Url {
     type: string;
     url: string;
+}
+
+export interface CharacterDetail {
+  id: number;
+  name: string;
+  description: string;
+  thumbnail: {
+    path: string;
+    extension: string;
+  };
 }
