@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import CharactersList from '@/components/charactersList'
-import useCharacters from '@/hooks/UseCharacters'
+import useCharacters from '@/hooks/useCharacters'
 import Header from '@/components/Header'
 
 export default function HomePage () {
