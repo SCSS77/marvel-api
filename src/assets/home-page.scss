@@ -1,0 +1,89 @@
+@import 'scss/utils/variables';
+
+.character-home {
+
+  &-page {
+    padding-top: 84px;
+  }
+
+  &-header {
+    background-color: #000;
+    height: 84px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    &--content {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      height: 100%;
+      justify-content: space-between;
+      padding-left: 42px;
+      padding-right: 42px;
+      width: 100%;
+    }
+
+    &--logo {
+      width: 130px;
+    }
+  }
+
+  &-main {
+    padding-top: 24px;
+  }
+
+  &-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 42px;
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+  }
+
+  &-card {
+    flex: 1 1 calc((100% - 84px) / 7);
+    max-width: calc((100% - 84px) / 7);
+    background-color: #000;
+
+    &:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    &__image {
+      height: inherit;
+      object-fit: cover;
+      width: 100%;
+
+      &-container {
+        height: 190px;
+        overflow: hidden;
+      }
+    }
+
+    &__info {
+      color: #FFF;
+      min-height: 60px;
+      padding: 16px;
+      text-transform: uppercase;
+    }
+
+    &__title {
+      font-size: 14px;
+    }
+  }
+}

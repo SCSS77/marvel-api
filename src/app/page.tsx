@@ -16,15 +16,17 @@ export default function HomePage () {
   if (loading) return <span>Loading...</span>
 
   return (
-    <div>
+    <div className='character-home-page'>
       <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearch={handleSearch} />
-      <main className='flex flex-col items-center justify-between p-24'>
-        <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full container gap-2 mt-12 '>
-          {data && data?.map((character) => (
-            <div key={character.id} className='min-w-full p-6 bg-white dark:bg-slate-800 dark:text-white rounded-md  transition-all '>
-              <CharactersList items={character} />
-            </div>
-          ))}
+      <main className='character-home-main'>
+        <section className='character-home-container'>
+          <ul className='character-home-list'>
+            {data && data?.map((character) => (
+              <li key={character.id} className='character-home-card'>
+                <CharactersList items={character} />
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
     </div>

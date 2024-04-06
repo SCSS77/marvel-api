@@ -1,3 +1,5 @@
+@import 'home-page.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,13 +19,10 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: #333;
+  background: #FFF;
+  font-family: 'Roboto Condensed', sans-serif !important;
+  font-weight: 400 !important;
 }
 
 @layer utilities {
