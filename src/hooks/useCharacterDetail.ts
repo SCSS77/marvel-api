@@ -10,11 +10,6 @@ export default function useCharacterDetail (characterId: number) {
     const cookieMarvelCharacterDetail = getLocalStorageWithExpiry('marvelCharacterDetail')
     const cookieParser = cookieMarvelCharacterDetail !== null && JSON.parse(cookieMarvelCharacterDetail)
 
-    if (cookieMarvelCharacterDetail !== null) {
-      setCharacterDetail(JSON.parse(cookieParser.value))
-      return
-    }
-
     async function fetchCharacterDetail () {
       try {
         const detail = await getCharacterDetail(characterId)
@@ -27,6 +22,10 @@ export default function useCharacterDetail (characterId: number) {
       }
     }
     fetchCharacterDetail()
+
+    if (cookieMarvelCharacterDetail !== null) {
+      setCharacterDetail(JSON.parse(cookieParser.value))
+    }
   }, [characterId])
 
   return {

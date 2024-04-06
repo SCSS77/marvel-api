@@ -10,11 +10,6 @@ export default function useCharacters (searchQuery) {
     const cookieValue = getLocalStorageWithExpiry('marvelCharacters')
     const cookieParser = cookieValue !== null && JSON.parse(cookieValue)
 
-    if (cookieValue !== null) {
-      setCharactersResults(JSON.parse(cookieParser.value))
-      return
-    }
-
     async function fetchData () {
       try {
         const data = await getCharactersList(searchQuery)
@@ -27,6 +22,10 @@ export default function useCharacters (searchQuery) {
       }
     }
     fetchData()
+
+    if (cookieValue !== null) {
+      setCharactersResults(JSON.parse(cookieParser.value))
+    }
   }, [searchQuery])
 
   return {

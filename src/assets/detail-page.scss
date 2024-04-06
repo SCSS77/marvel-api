@@ -2,15 +2,50 @@
 @import 'scss/widgets/header';
 @import 'scss/widgets/searcher';
 
-.character-home {
+.character-detail {
 
   &-page {
     padding-top: 84px;
   }
 
-  &-main {
-    padding-bottom: 56px;
-    padding-top: 24px;
+  &-top-card {
+    background: #000;
+    border-top: 1px solid #555;
+
+    &__content {
+      align-items: center;
+      display: flex;
+      margin: 0 auto;
+      max-width: 960px;
+    }
+
+    &__image {
+      height: inherit;
+      object-fit: cover;
+      width: 100%;
+
+      &-content {
+        height: 320px;
+        overflow: hidden;
+        width: 320px;
+      }
+    }
+
+    &__info {
+      color: #FFF;
+      padding-left: 48px;
+    }
+
+    &__title {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    &__description {
+      font-size: 16px;
+    }
   }
 
   &-container {

@@ -13,7 +13,7 @@ function CharactersList ({ items }:Props) {
       <Link href={`/characters/${items.id}`}>
         <div className='character-home-card__image-container'>
           <Image
-            src={`${items.thumbnail.path}.${items.thumbnail.extension}`}
+            src={`${items.thumbnail.path}/standard_fantastic.${items.thumbnail.extension}`}
             alt={items.name}
             height={400}
             width={500}
