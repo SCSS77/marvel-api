@@ -17,10 +17,10 @@ const Header: React.FC<HeaderProps> = ({ favoritesCount }) => {
           <div className='header__favorites' onClick={() => console.log('Navigate to favorites page')}>
             {favoritesCount === 0
               ? (
-                <Image src='/heart-empty.svg' class='header__favorites-image' alt='Empty Favorites' width={24} height={24} />
+                <Image src='/heart-empty.svg' className='header__favorites-image' alt='Empty Favorites' width={24} height={24} />
                 )
               : (
-                <Image src='/heart-full.svg' class='header__favorites-image' alt='Favorites' width={24} height={24} />
+                <Image src='/heart-full.svg' className='header__favorites-image' alt='Favorites' width={24} height={24} />
                 )}
             <span>{favoritesCount}</span>
           </div>

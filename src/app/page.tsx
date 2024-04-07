@@ -6,20 +6,23 @@ import useCharacters from '@/hooks/useCharacters'
 import Header from '@/components/Header'
 import SearchBar from '@/components/SeachBar'
 
+import { setLocalStorageWithExpiry, getLocalStorageWithExpiry } from '@/utils/localStorage'
+
 export default function HomePage () {
   const [searchQuery, setSearchQuery] = useState('')
   const { data, loading } = useCharacters(searchQuery)
   const [favorites, setFavorites] = useState([])
 
   useEffect(() => {
-    const storedFavorites = localStorage.getItem('favorites')
+    const storedFavorites = getLocalStorageWithExpiry('favorites')
     if (storedFavorites) {
-      setFavorites(JSON.parse(storedFavorites))
+      const parsedFavorites = JSON.parse(storedFavorites)
+      setFavorites(Array.isArray(parsedFavorites) ? parsedFavorites : [])
     }
   }, [])
 
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites))
+    setLocalStorageWithExpiry('favorites', JSON.stringify(favorites), 1)
   }, [favorites])
 
   const handleSearch = (query: string) => {
@@ -27,12 +30,14 @@ export default function HomePage () {
   }
 
   const toggleFavorite = (character) => {
-    if (favorites.some((fav) => fav.id === character.id)) {
-      const updatedFavorites = favorites.filter((fav) => fav.id !== character.id)
-      setFavorites(updatedFavorites)
+    const updatedFavorites = [...favorites]
+    const index = updatedFavorites.findIndex((fav) => fav.id === character.id)
+    if (index !== -1) {
+      updatedFavorites.splice(index, 1)
     } else {
-      setFavorites([...favorites, character])
+      updatedFavorites.push(character)
     }
+    setFavorites(updatedFavorites)
   }
 
   if (loading) return <span>Loading...</span>
@@ -46,20 +51,25 @@ export default function HomePage () {
         <section className='character-home-container'>
           <SearchBar searchQuery={searchQuery} setSearchQuery={handleSearch} characterCount={characterCount} />
           <ul className='character-home-list'>
-            {data && data?.map((character) => (
-              <li key={character.id} className='character-home-card'>
-                <CharactersList items={character} />
-                <div className='character-home-card__favorites'>
-                  {favorites.some((fav) => fav.id === character.id)
-                    ? (
-                      <img src='/heart-full.svg' alt='Remove from Favorites' onClick={() => toggleFavorite(character)} />
-                      )
-                    : (
-                      <img src='/heart-empty.svg' alt='Add to Favorites' onClick={() => toggleFavorite(character)} />
-                      )}
-                </div>
-              </li>
-            ))}
+            {data &&
+              data.map((character) => (
+                <li key={character.id} className='character-home-card'>
+                  <CharactersList
+                    items={character}
+                    isFavorite={favorites.some((fav) => fav.id === character.id)}
+                    toggleFavorite={() => toggleFavorite(character)}
+                  />
+                  <div className='character-home-card__favorites'>
+                    {favorites.some((fav) => fav.id === character.id)
+                      ? (
+                        <img src='/heart-full.svg' alt='Remove from Favorites' onClick={() => toggleFavorite(character)} />
+                        )
+                      : (
+                        <img src='/heart-empty.svg' alt='Add to Favorites' onClick={() => toggleFavorite(character)} />
+                        )}
+                  </div>
+                </li>
+              ))}
           </ul>
         </section>
       </main>
