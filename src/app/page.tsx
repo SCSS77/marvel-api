@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CharactersList from '@/components/charactersList'
 import useCharacters from '@/hooks/useCharacters'
 import Header from '@/components/Header'
@@ -10,6 +10,17 @@ export default function HomePage () {
   const [searchQuery, setSearchQuery] = useState('')
   const { data, loading } = useCharacters(searchQuery)
   const [favorites, setFavorites] = useState([])
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem('favorites')
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites))
+  }, [favorites])
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)
@@ -22,6 +33,15 @@ export default function HomePage () {
   const removeFromFavorites = (character) => {
     const updatedFavorites = favorites.filter((fav) => fav.id !== character.id)
     setFavorites(updatedFavorites)
+  }
+
+  const toggleFavorite = (character) => {
+    if (favorites.some((fav) => fav.id === character.id)) {
+      const updatedFavorites = favorites.filter((fav) => fav.id !== character.id)
+      setFavorites(updatedFavorites)
+    } else {
+      setFavorites([...favorites, character])
+    }
   }
 
   if (loading) return <span>Loading...</span>
@@ -38,13 +58,15 @@ export default function HomePage () {
             {data && data?.map((character) => (
               <li key={character.id} className='character-home-card'>
                 <CharactersList items={character} />
-                {favorites.find((fav) => fav.id === character.id)
-                  ? (
-                    <button onClick={() => removeFromFavorites(character)}>Remove from Favorites</button>
-                    )
-                  : (
-                    <button onClick={() => addToFavorites(character)}>Add to Favorites</button>
-                    )}
+                <div className='character-home-card__favorites'>
+                  {favorites.some((fav) => fav.id === character.id)
+                    ? (
+                      <img src='/heart-full.svg' alt='Remove from Favorites' onClick={() => toggleFavorite(character)} />
+                      )
+                    : (
+                      <img src='/heart-empty.svg' alt='Add to Favorites' onClick={() => toggleFavorite(character)} />
+                      )}
+                </div>
               </li>
             ))}
           </ul>

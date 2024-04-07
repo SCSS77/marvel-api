@@ -5,6 +5,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 .header__content {
   align-items: center;
@@ -18,6 +19,13 @@
 }
 .header__logo {
   width: 130px;
+}
+.header__favorites {
+  color: #FFF;
+  display: flex;
+}
+.header__favorites-image {
+  margin-right: 6px;
 }
 
 .search-bar__input {
@@ -71,6 +79,7 @@
   flex: 1 1 calc((100% - 84px) / 7);
   max-width: calc((100% - 84px) / 7);
   background-color: #000;
+  position: relative;
 }
 .character-home-card:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -93,4 +102,10 @@
 }
 .character-home-card__title {
   font-size: 14px;
+  width: calc(100% - 15px);
+}
+.character-home-card__favorites {
+  position: absolute;
+  right: 16px;
+  top: 215px;
 }
