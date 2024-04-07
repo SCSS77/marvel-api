@@ -26,15 +26,6 @@ export default function HomePage () {
     setSearchQuery(query)
   }
 
-  const addToFavorites = (character) => {
-    setFavorites([...favorites, character])
-  }
-
-  const removeFromFavorites = (character) => {
-    const updatedFavorites = favorites.filter((fav) => fav.id !== character.id)
-    setFavorites(updatedFavorites)
-  }
-
   const toggleFavorite = (character) => {
     if (favorites.some((fav) => fav.id === character.id)) {
       const updatedFavorites = favorites.filter((fav) => fav.id !== character.id)
