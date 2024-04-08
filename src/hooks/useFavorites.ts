@@ -1,28 +1,26 @@
 import { useState, useEffect } from 'react'
-import { setLocalStorageWithExpiry, getLocalStorageWithExpiry } from '@/utils/localStorage'
 
-export function useFavorites (initialFavorites) {
-  const [favorites, setFavorites] = useState(initialFavorites)
+export function useFavorites () {
+  const [favorites, setFavorites] = useState([])
 
   useEffect(() => {
-    const storedFavorites = getLocalStorageWithExpiry('favorites')
+    const storedFavorites = localStorage.getItem('favouriteMarvelCharacters')
+
     if (storedFavorites) {
       const parsedFavorites = JSON.parse(storedFavorites)
-      setFavorites(Array.isArray(parsedFavorites) ? parsedFavorites : [])
+      setFavorites(parsedFavorites)
     }
   }, [])
-
-  useEffect(() => {
-    setLocalStorageWithExpiry('favorites', JSON.stringify(favorites), 1) // Store favorites with 1 day expiry
-  }, [favorites])
 
   const toggleFavorite = (character) => {
     const updatedFavorites = [...favorites]
     const index = updatedFavorites.findIndex((fav) => fav.id === character.id)
     if (index !== -1) {
       updatedFavorites.splice(index, 1)
+      localStorage.setItem('favouriteMarvelCharacters', JSON.stringify(updatedFavorites))
     } else {
       updatedFavorites.push(character)
+      localStorage.setItem('favouriteMarvelCharacters', JSON.stringify(updatedFavorites))
     }
     setFavorites(updatedFavorites)
   }
