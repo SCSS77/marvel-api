@@ -1,43 +1,19 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import CharactersList from '@/components/charactersList'
 import useCharacters from '@/hooks/useCharacters'
 import Header from '@/components/Header'
 import SearchBar from '@/components/SeachBar'
-
-import { setLocalStorageWithExpiry, getLocalStorageWithExpiry } from '@/utils/localStorage'
+import { useFavorites } from '@/hooks/useFavorites'
 
 export default function HomePage () {
   const [searchQuery, setSearchQuery] = useState('')
   const { data, loading } = useCharacters(searchQuery)
-  const [favorites, setFavorites] = useState([])
-
-  useEffect(() => {
-    const storedFavorites = getLocalStorageWithExpiry('favorites')
-    if (storedFavorites) {
-      const parsedFavorites = JSON.parse(storedFavorites)
-      setFavorites(Array.isArray(parsedFavorites) ? parsedFavorites : [])
-    }
-  }, [])
-
-  useEffect(() => {
-    setLocalStorageWithExpiry('favorites', JSON.stringify(favorites), 1)
-  }, [favorites])
+  const [favorites, toggleFavorite] = useFavorites([])
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)
-  }
-
-  const toggleFavorite = (character) => {
-    const updatedFavorites = [...favorites]
-    const index = updatedFavorites.findIndex((fav) => fav.id === character.id)
-    if (index !== -1) {
-      updatedFavorites.splice(index, 1)
-    } else {
-      updatedFavorites.push(character)
-    }
-    setFavorites(updatedFavorites)
   }
 
   if (loading) return <span>Loading...</span>
