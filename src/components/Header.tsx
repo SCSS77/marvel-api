@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ favoritesCount }) => {
         <Link href='/'>
           <Image width={100} height={100} src='/logo.svg' alt='Marvel' className='header__logo' />
         </Link>
-        <Link href='/favorites'>
+        <Link href='/favorites/page'>
           <div className='header__favorites' onClick={() => console.log('Navigate to favorites page')}>
             {favoritesCount === 0
               ? (
