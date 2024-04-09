@@ -34,33 +34,44 @@
     padding-right: 42px;
   }
 }
-.search-bar__input {
-  border-bottom: 1px solid #000;
+.character-detail-comics {
+  margin: 0 auto;
+  max-width: 960px;
+  padding-bottom: 56px;
+  padding-top: 42px;
+}
+.character-detail-comics__title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 24px;
   text-transform: uppercase;
-  padding-bottom: 6px;
-  width: 100%;
 }
-.search-bar__input:focus {
-  outline: 0;
+.character-detail-comics__container {
+  overflow-x: auto;
 }
-.search-bar__input-container {
-  margin-bottom: 30px;
-  padding-top: 10px;
-  width: 100%;
+.character-detail-comics__list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  min-width: 100%;
 }
-.search-bar__counter {
-  display: block;
-  font-size: 12px;
-  padding-top: 10px;
-  text-transform: uppercase;
+.character-detail-comics__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-right: 16px;
+  min-width: 179px;
+}
+.character-detail-comics__card-image {
+  margin-bottom: 10px;
+}
+.character-detail-comics__card-title {
+  font-size: 16px;
+  font-weight: 500;
 }
 
-@media (min-width: 768px) {
-  .search-bar__input-container {
-    margin-bottom: 42px;
-    padding-top: 32px;
-  }
-}
 .character-detail-page {
   padding-top: 84px;
 }
