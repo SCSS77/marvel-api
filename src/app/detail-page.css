@@ -13,8 +13,8 @@
   flex-wrap: wrap;
   height: 100%;
   justify-content: space-between;
-  padding-left: 42px;
-  padding-right: 42px;
+  padding-left: 16px;
+  padding-right: 16px;
   width: 100%;
 }
 .header__logo {
@@ -28,6 +28,12 @@
   margin-right: 6px;
 }
 
+@media (min-width: 768px) {
+  .header__content {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
+}
 .search-bar__input {
   border-bottom: 1px solid #000;
   text-transform: uppercase;
@@ -38,8 +44,8 @@
   outline: 0;
 }
 .search-bar__input-container {
-  margin-bottom: 42px;
-  padding-top: 32px;
+  margin-bottom: 30px;
+  padding-top: 10px;
   width: 100%;
 }
 .search-bar__counter {
@@ -49,6 +55,12 @@
   text-transform: uppercase;
 }
 
+@media (min-width: 768px) {
+  .search-bar__input-container {
+    margin-bottom: 42px;
+    padding-top: 32px;
+  }
+}
 .character-detail-page {
   padding-top: 84px;
 }

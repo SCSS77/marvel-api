@@ -11,8 +11,8 @@
     }
 
     &-container {
-      margin-bottom: 42px;
-      padding-top: 32px;
+      margin-bottom: 30px;
+      padding-top: 10px;
       width: 100%;
     }
   }
@@ -22,5 +22,13 @@
     font-size: 12px;
     padding-top: 10px;
     text-transform: uppercase;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+
+  .search-bar__input-container {
+    margin-bottom: 42px;
+    padding-top: 32px;
   }
 }
