@@ -5,6 +5,7 @@ import CharactersList from '@/components/charactersList'
 import useCharacters from '@/hooks/useCharacters'
 import Header from '@/components/Header'
 import SearchBar from '@/components/SeachBar'
+import Loader from '@/components/Loader'
 import { useFavorites } from '@/hooks/useFavorites'
 
 export default function HomePage () {
@@ -16,7 +17,7 @@ export default function HomePage () {
     setSearchQuery(query)
   }
 
-  if (loading) return <span>Loading...</span>
+  if (loading) return <Loader />
 
   const characterCount = data ? data.length : 0
 

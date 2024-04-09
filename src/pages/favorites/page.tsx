@@ -4,6 +4,7 @@ import useCharacters from '@/hooks/useCharacters'
 import SearchBar from '@/components/SeachBar'
 import { useFavorites } from '@/hooks/useFavorites'
 import FavoritesLayout from '@/pages/favorites/layout'
+import Loader from '@/components/Loader'
 
 export default function FavoritesPage () {
   const [searchQuery, setSearchQuery] = useState('')
@@ -14,7 +15,7 @@ export default function FavoritesPage () {
     setSearchQuery(query)
   }
 
-  if (loading) return <span>Loading...</span>
+  if (loading) return <Loader />
 
   const characterCount = data ? data.length : 0
 

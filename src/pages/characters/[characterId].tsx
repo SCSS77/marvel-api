@@ -4,13 +4,14 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import useCharacterDetail from '@/hooks/useCharacterDetail'
 import CharacterLayout from '@/pages/characters/layout'
+import Loader from '@/components/Loader'
 
 const CharacterDetailPage = () => {
   const router = useRouter()
   const { characterId } = router.query
   const { characterDetail, loading } = useCharacterDetail(Number(characterId))
 
-  if (loading) return <span>Loading...</span>
+  if (loading) return <Loader />
 
   return (
     <CharacterLayout>
