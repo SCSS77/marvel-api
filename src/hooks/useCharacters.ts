@@ -1,10 +1,25 @@
 import { useEffect, useState } from 'react'
 import getCharactersList from '@/services/getCharactersList'
 import { setLocalStorageWithExpiry } from '@/utils/localStorage'
+import { Comic, Events, Series, Stories, Thumbnail, Url } from '@/characters'
 
 interface Character {
   id: number;
   name: string;
+  description: string;
+  modified: string;
+  thumbnail: Thumbnail;
+  resourceURI: string;
+  comics: {
+        available: number;
+        collectionURI: string;
+        items: Comic[];
+        returned: number;
+    };
+  series: Series;
+  stories: Stories;
+  events: Events;
+  urls: Url[];
 }
 
 interface CharactersResponse {

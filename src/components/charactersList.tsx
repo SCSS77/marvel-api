@@ -4,7 +4,9 @@ import { Results } from '@/characters'
 import Link from 'next/link'
 
 interface Props {
-  items: Results
+  items: Results;
+  isFavorite: boolean;
+  toggleFavorite: () => void;
 }
 
 function CharactersList ({ items }:Props) {
