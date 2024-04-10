@@ -12,14 +12,12 @@ export default function HomePage () {
   const [searchQuery, setSearchQuery] = useState('')
   const { data, loading } = useCharacters(searchQuery)
   const [favorites, toggleFavorite] = useFavorites()
-
+  const characterCount = data ? data.length : 0
   const handleSearch = (query: string) => {
     setSearchQuery(query)
   }
 
   if (loading) return <Loader />
-
-  const characterCount = data ? data.length : 0
 
   return (
     <div className='character-home-page'>
