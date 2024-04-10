@@ -12,7 +12,7 @@ const CharacterDetailPage = () => {
   const router = useRouter()
   const { characterId } = router.query
   const { characterData, loading } = useCharacterDetail(Number(characterId))
-  const [favorites] = useFavorites([])
+  const [favorites] = useFavorites()
 
   if (loading) return <Loader />
 

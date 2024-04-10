@@ -12,7 +12,7 @@ import Loader from '@/components/Loader'
 export default function FavoritesPage () {
   const [searchQuery, setSearchQuery] = useState('')
   const { data, loading } = useCharacters(searchQuery)
-  const [favorites] = useFavorites([])
+  const [favorites] = useFavorites()
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)

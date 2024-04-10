@@ -1,30 +1,34 @@
-import getCharactersList from '@/services/getCharactersList'
 import { useEffect, useState } from 'react'
+import getCharactersList from '@/services/getCharactersList'
+import { setLocalStorageWithExpiry } from '@/utils/localStorage'
 
-import { setLocalStorageWithExpiry, getLocalStorageWithExpiry } from '@/utils/localStorage'
+interface Character {
+  id: number;
+  name: string;
+}
 
-export default function useCharacters (searchQuery) {
-  const [charactersResults, setCharactersResults] = useState(null)
+interface CharactersResponse {
+  data: {
+    results: Character[];
+  };
+}
+
+export default function useCharacters (searchQuery: string) {
+  const [charactersResults, setCharactersResults] = useState<Character[] | null>(null)
 
   useEffect(() => {
-    const cookieValue = getLocalStorageWithExpiry('marvelCharacters')
-    const cookieParser = cookieValue !== null && JSON.parse(cookieValue)
-
-    if (cookieValue !== null) {
-      setCharactersResults(JSON.parse(cookieParser.value))
-    }
-
-    async function fetchData () {
+    const fetchData = async () => {
       try {
-        const data = await getCharactersList(searchQuery)
+        const data: CharactersResponse = await getCharactersList(searchQuery)
         setCharactersResults(data.data.results)
 
         const dataParser = JSON.stringify(data.data.results)
         setLocalStorageWithExpiry('marvelCharacters', dataParser, 1)
       } catch (error) {
-        console.log(error)
+        console.error('Error fetching characters:', error)
       }
     }
+
     fetchData()
   }, [searchQuery])
 

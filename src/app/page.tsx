@@ -11,7 +11,7 @@ import { useFavorites } from '@/hooks/useFavorites'
 export default function HomePage () {
   const [searchQuery, setSearchQuery] = useState('')
   const { data, loading } = useCharacters(searchQuery)
-  const [favorites, toggleFavorite] = useFavorites([])
+  const [favorites, toggleFavorite] = useFavorites()
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)
