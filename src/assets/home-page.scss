@@ -1,0 +1,116 @@
+@import 'scss/utils/variables';
+@import 'scss/widgets/loader';
+@import 'scss/widgets/header';
+@import 'scss/widgets/searcher';
+
+.character-home {
+
+  &-page {
+    padding-top: 84px;
+  }
+
+  &-main {
+    padding-bottom: 56px;
+    padding-top: 24px;
+  }
+
+  &-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 16px;
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+  }
+
+  &-card {
+    flex: 1 1 calc((100% - 14px) / 2);
+    max-width: calc((100% - 14px) / 2);
+    background-color: #000;
+    position: relative;
+
+    &:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      right: -15px;
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      transform-origin: bottom right;
+      transform: rotate(-45deg);
+    }
+
+    &__image {
+      height: inherit;
+      object-fit: cover;
+      width: 100%;
+
+      &-container {
+        height: 190px;
+        overflow: hidden;
+      }
+    }
+
+    &__info {
+      border-top: 5px solid #EC1D24;
+      color: #FFF;
+      min-height: 60px;
+      padding: 16px;
+      text-transform: uppercase;
+    }
+
+    &__title {
+      font-size: 14px;
+      width: 80%;
+    }
+
+    &__favorites {
+      position: absolute;
+      right: 16px;
+      top: 215px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+
+  .character-home {
+
+    &-container {
+      padding: 0 42px;
+    }
+
+    &-card {
+      flex: 1 1 calc((100% - 84px) / 7);
+      max-width: calc((100% - 84px) / 7);
+    }
+  }
+}
+
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-xl) {
+
+  .character-home {
+
+    &-card {
+      flex: 1 1 calc((100% - 42px) / 4);
+      max-width: calc((100% - 42px) / 4);
+    }
+  }
+}
