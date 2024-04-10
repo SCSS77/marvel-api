@@ -1,36 +1,18 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import CharacterLayout from '@/pages/characters/layout'
 import Header from '@/components/Header'
 import Loader from '@/components/Loader'
-import getCharacterDetail from '@/services/getCharacterDetail'
+import useCharacterDetail from '@/hooks/useCharacterDetail'
 import { useFavorites } from '@/hooks/useFavorites'
 
 const CharacterDetailPage = () => {
   const router = useRouter()
   const { characterId } = router.query
-  const [characterData, setCharacterData] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const { characterData, loading } = useCharacterDetail(Number(characterId))
   const [favorites] = useFavorites([])
-
-  useEffect(() => {
-    const fetchCharacterDetail = async () => {
-      try {
-        const data = await getCharacterDetail(Number(characterId))
-        setCharacterData(data)
-        setLoading(false)
-      } catch (error) {
-        console.error('Error fetching character detail:', error)
-        setLoading(false)
-      }
-    }
-
-    if (characterId) {
-      fetchCharacterDetail()
-    }
-  }, [characterId])
 
   if (loading) return <Loader />
 

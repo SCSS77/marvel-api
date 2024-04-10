@@ -7,7 +7,15 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Marvel App',
-  description: 'Find your favorite Marvel characters!'
+  description: 'Find your favorite Marvel characters!',
+  icons: {
+    icon: [
+      {
+        url: '/favicon.png',
+        href: '/favicon.png'
+      }
+    ]
+  }
 }
 
 export default function RootLayout ({
