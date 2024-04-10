@@ -1,5 +1,4 @@
 export interface Characters {
-    // eslint-disable-next-line no-use-before-define
     data: Data;
 }
 
@@ -8,7 +7,6 @@ export interface Data {
     limit: number;
     total: number;
     count: number;
-    // eslint-disable-next-line no-use-before-define
     results: Results[];
 }
 
@@ -17,23 +15,17 @@ export interface Results {
     name: string;
     description: string;
     modified: string;
-    // eslint-disable-next-line no-use-before-define
     thumbnail: Thumbnail;
     resourceURI: string;
     comics: {
         available: number;
         collectionURI: string;
-        // eslint-disable-next-line no-use-before-define
         items: Comic[];
         returned: number;
     };
-    // eslint-disable-next-line no-use-before-define
     series: Series;
-    // eslint-disable-next-line no-use-before-define
     stories: Stories;
-    // eslint-disable-next-line no-use-before-define
     events: Events;
-    // eslint-disable-next-line no-use-before-define
     urls: Url[];
 }
 

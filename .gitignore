@@ -6,4 +6,4 @@ node_modules/
 /.next/
 /out/
 /build
-/src/app/assets/config.codekit3
+/src/assets/config.codekit3
