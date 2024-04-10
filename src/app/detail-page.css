@@ -38,6 +38,7 @@
   margin: 0 auto;
   max-width: 960px;
   padding-bottom: 56px;
+  padding-left: 16px;
   padding-top: 42px;
 }
 .character-detail-comics__title {
@@ -49,20 +50,8 @@
 .character-detail-comics__container {
   overflow-x: auto;
 }
-.character-detail-comics__container::-webkit-scrollbar {
-  background-color: #D9D9D9;
-  height: 4px;
-}
-.character-detail-comics__container::-webkit-scrollbar-thumb {
-  background-color: #EC1D24;
-  border-radius: 2px;
-}
-.character-detail-comics__container::-webkit-scrollbar-track {
-  background-color: transparent;
-}
 .character-detail-comics__list {
   list-style-type: none;
-  padding: 0 0 24px;
   display: flex;
   flex-wrap: nowrap;
   min-width: 100%;
@@ -83,6 +72,32 @@
   font-weight: 500;
 }
 
+@media (min-width: 768px) {
+  .character-detail-comics {
+    padding-left: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .character-detail-comics {
+    padding-left: 42px;
+  }
+}
+@media (min-width: 1024px) {
+  .character-detail-comics__container::-webkit-scrollbar {
+    background-color: #D9D9D9;
+    height: 4px;
+  }
+  .character-detail-comics__container::-webkit-scrollbar-thumb {
+    background-color: #EC1D24;
+    border-radius: 2px;
+  }
+  .character-detail-comics__container::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  .character-detail-comics__list {
+    padding: 0 0 24px;
+  }
+}
 .character-detail-page {
   padding-top: 84px;
 }
@@ -90,34 +105,24 @@
   background: #000;
   border-top: 1px solid #555;
 }
-.character-detail-top-card__content {
-  align-items: center;
-  display: flex;
-  margin: 0 auto;
-  max-width: 960px;
-}
 .character-detail-top-card__image {
   height: inherit;
   object-fit: cover;
   width: 100%;
 }
-.character-detail-top-card__image-content {
-  height: 320px;
-  overflow: hidden;
-  width: 320px;
-}
 .character-detail-top-card__info {
   color: #FFF;
-  padding-left: 48px;
+  padding: 16px;
 }
 .character-detail-top-card__title {
   font-size: 40px;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   text-transform: uppercase;
 }
 .character-detail-top-card__description {
   font-size: 16px;
+  margin-bottom: 32px;
 }
 .character-detail-container {
   align-items: center;
@@ -164,4 +169,27 @@
 }
 .character-detail-card__title {
   font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .character-detail-top-card__content {
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    max-width: 960px;
+  }
+  .character-detail-top-card__image-content {
+    height: 320px;
+    overflow: hidden;
+    width: 320px;
+  }
+  .character-detail-top-card__info {
+    padding: 0 0 0 48px;
+  }
+  .character-detail-top-card__title {
+    margin-bottom: 24px;
+  }
+  .character-detail-top-card__description {
+    margin-bottom: 0;
+  }
 }
