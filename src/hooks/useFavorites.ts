@@ -13,18 +13,16 @@ export function useFavorites () {
   }, [])
 
   const toggleFavorite = (character) => {
-    if (favorites.length < 20) {
-      const updatedFavorites = [...favorites]
-      const index = updatedFavorites.findIndex((fav) => fav.id === character.id)
-      if (index !== -1) {
-        updatedFavorites.splice(index, 1)
-        localStorage.setItem('favouriteMarvelCharacters', JSON.stringify(updatedFavorites))
-      } else {
-        updatedFavorites.push(character)
-        localStorage.setItem('favouriteMarvelCharacters', JSON.stringify(updatedFavorites))
-      }
-      setFavorites(updatedFavorites)
+    const updatedFavorites = [...favorites]
+    const index = updatedFavorites.findIndex((fav) => fav.id === character.id)
+    if (index !== -1) {
+      updatedFavorites.splice(index, 1)
+      localStorage.setItem('favouriteMarvelCharacters', JSON.stringify(updatedFavorites))
+    } else {
+      updatedFavorites.push(character)
+      localStorage.setItem('favouriteMarvelCharacters', JSON.stringify(updatedFavorites))
     }
+    setFavorites(updatedFavorites)
   }
 
   return [favorites, toggleFavorite]
