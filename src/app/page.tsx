@@ -15,8 +15,9 @@ export default function HomePage () {
   const [favorites, toggleFavorite] = useFavorites()
   const characterCount = data ? data.length : 0
   const router = useRouter()
+
   const handleSearch = (searchQuery: string) => {
-    router.push(`/results?query=${encodeURIComponent(searchQuery)}`)
+    router.push(`/results/page?query=${encodeURIComponent(searchQuery)}`)
   }
 
   if (loading) return <Loader />
