@@ -12,9 +12,9 @@ import { useRouter } from 'next/router'
 
 export default function FavoritesPage () {
   const [searchQuery] = useState('')
-  const { data, loading } = useCharacters(searchQuery)
+  const { loading } = useCharacters(searchQuery)
   const [favorites, toggleFavorite] = useFavorites()
-  const characterCount = data ? data.length : 0
+  const characterCount = favorites.length
   const router = useRouter()
 
   const handleSearch = (searchQuery: string) => {

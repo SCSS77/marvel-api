@@ -12,9 +12,9 @@ import { useRouter } from 'next/router'
 
 const ResultsPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('')
-  const { data, loading } = useCharacters(searchQuery)
+  const { loading } = useCharacters(searchQuery)
   const [favorites, toggleFavorite] = useFavorites()
-  const characterCount = data ? data.length : 0
+  const [characterCount, setCharacterCount] = useState(0)
   const router = useRouter()
   const { query } = router.query || {}
   const [searchResults, setSearchResults] = useState<any[]>([])
@@ -32,6 +32,7 @@ const ResultsPage: React.FC = () => {
         }
         const data = await response.json()
         setSearchResults(data.data.results)
+        setCharacterCount(data.data.total)
       } catch (error) {
         console.error('Error fetching search results:', error)
       }
