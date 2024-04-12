@@ -10,16 +10,26 @@ interface Props {
 }
 
 function CharactersList ({ items }:Props) {
+  const imageUrl = `${items.thumbnail.path}/portrait_uncanny.${items.thumbnail.extension}`
+  const imageUrlLarge = `${items.thumbnail.path}/standard_fantastic.${items.thumbnail.extension}`
+
   return (
     <>
       <Link href={`/characters/${items.id}`}>
         <div className='character-home-card__image-container'>
           <Image
-            src={`${items.thumbnail.path}/standard_fantastic.${items.thumbnail.extension}`}
+            src={imageUrl}
             alt={items.name}
             height={400}
             width={500}
-            className='character-home-card__image'
+            className='character-home-card__image character-home-card__image--mobile'
+          />
+          <Image
+            src={imageUrlLarge}
+            alt={items.name}
+            height={400}
+            width={500}
+            className='character-home-card__image character-home-card__image--desktop'
           />
         </div>
         <div className='character-home-card__info'>
