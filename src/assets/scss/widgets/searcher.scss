@@ -4,6 +4,7 @@
     border-bottom: 1px solid #000;
     text-transform: uppercase;
     padding-bottom: 6px;
+    padding-left: 50px;
     width: 100%;
 
     &:focus {
@@ -13,7 +14,13 @@
     &-container {
       margin-bottom: 30px;
       padding-top: 10px;
+      position: relative;
       width: 100%;
+
+      button {
+        left: 0;
+        position: absolute;
+      }
     }
   }
 

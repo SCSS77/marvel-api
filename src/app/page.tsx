@@ -7,14 +7,16 @@ import Header from '@/components/Header'
 import SearchBar from '@/components/SeachBar'
 import Loader from '@/components/Loader'
 import { useFavorites } from '@/hooks/useFavorites'
+import { useRouter } from 'next/navigation'
 
 export default function HomePage () {
-  const [searchQuery, setSearchQuery] = useState('')
+  const [searchQuery] = useState('')
   const { data, loading } = useCharacters(searchQuery)
   const [favorites, toggleFavorite] = useFavorites()
   const characterCount = data ? data.length : 0
-  const handleSearch = (query: string) => {
-    setSearchQuery(query)
+  const router = useRouter()
+  const handleSearch = (searchQuery: string) => {
+    router.push(`/results?query=${encodeURIComponent(searchQuery)}`)
   }
 
   if (loading) return <Loader />
@@ -24,7 +26,7 @@ export default function HomePage () {
       <Header favoritesCount={favorites.length} />
       <main className='character-home-main'>
         <section className='character-home-container'>
-          <SearchBar searchQuery={searchQuery} setSearchQuery={handleSearch} characterCount={characterCount} />
+          <SearchBar onSearch={handleSearch} characterCount={characterCount} />
           <ul className='character-home-list'>
             {data &&
               data.map((character) => (

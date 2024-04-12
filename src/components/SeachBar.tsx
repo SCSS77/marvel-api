@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 interface SearchBarProps {
-  searchQuery: string;
-  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+  onSearch: (query: string) => void;
   characterCount: number;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, setSearchQuery, characterCount }) => {
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value)
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch, characterCount }) => {
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value)
+  }
+
+  const handleSearch = () => {
+    onSearch(searchQuery)
   }
 
   return (
@@ -16,13 +21,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, setSearchQuery, char
       <input
         type='text'
         value={searchQuery}
-        onChange={handleSearch}
-        placeholder='Search a character...'
+        onChange={handleInputChange}
+        placeholder='Search for a character...'
         className='search-bar__input'
       />
-      <span className='search-bar__counter'>
-        {characterCount} Results
-      </span>
+      <button onClick={handleSearch}>Search</button>
+      <span className='search-bar__counter'>{characterCount} Results</span> {/* Display characterCount */}
     </div>
   )
 }
