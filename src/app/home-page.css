@@ -6,7 +6,6 @@
   height: 100vh;
   width: 100%;
 }
-
 .loading-container__bounce {
   position: relative;
   width: 50px;
@@ -14,9 +13,7 @@
   margin: 0 auto;
   top: 50%;
 }
-
-.loading-container__bounce::before,
-.loading-container__bounce::after {
+.loading-container__bounce::before, .loading-container__bounce::after {
   content: "";
   position: absolute;
   top: 0;
@@ -27,13 +24,11 @@
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
-
-.loading-container__bouncer::before {
+.loading-container__bounce::before {
   border-top-color: #333;
   border-bottom-color: #333;
   animation-delay: 0.5s;
 }
-
 .loading-container__bounce::after {
   border-left-color: #333;
   border-right-color: #333;
@@ -84,7 +79,7 @@
   border-bottom: 1px solid #000;
   text-transform: uppercase;
   padding-bottom: 6px;
-  padding-left: 50px;
+  padding-left: 25px;
   width: 100%;
 }
 .search-bar__input:focus {
@@ -96,9 +91,17 @@
   position: relative;
   width: 100%;
 }
-.search-bar__input-container button {
-  left: 0;
+.search-bar__button {
   position: absolute;
+  left: 0;
+  top: 15px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  text-indent: -9999px;
+  background: url("/lens.svg") no-repeat center center;
+  background-size: 15px 15px;
+  z-index: 1;
 }
 .search-bar__counter {
   display: block;

@@ -16,17 +16,24 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, characterCount }) => {
     onSearch(searchQuery)
   }
 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearch()
+    }
+  }
+
   return (
     <div className='search-bar__input-container'>
       <input
         type='text'
         value={searchQuery}
         onChange={handleInputChange}
+        onKeyPress={handleKeyPress}
         placeholder='Search for a character...'
         className='search-bar__input'
       />
-      <button onClick={handleSearch}>Search</button>
-      <span className='search-bar__counter'>{characterCount} Results</span> {/* Display characterCount */}
+      <button className='search-bar__button' onClick={handleSearch}>Search</button>
+      <span className='search-bar__counter'>{characterCount} Results</span>
     </div>
   )
 }

@@ -4,7 +4,7 @@
     border-bottom: 1px solid #000;
     text-transform: uppercase;
     padding-bottom: 6px;
-    padding-left: 50px;
+    padding-left: 25px;
     width: 100%;
 
     &:focus {
@@ -16,12 +16,20 @@
       padding-top: 10px;
       position: relative;
       width: 100%;
-
-      button {
-        left: 0;
-        position: absolute;
-      }
     }
+  }
+
+  &__button {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    text-indent: -9999px;
+    background: url("/lens.svg") no-repeat center center;
+    background-size: 15px 15px;
+    z-index: 1;
   }
 
   &__counter {

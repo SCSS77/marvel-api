@@ -9,38 +9,38 @@ $loader-duration: 1s;
   left: 0;
   height: 100vh;
   width: 100%;
-}
 
-.loading-container__bounce {
-  position: relative;
-  width: $loader-size;
-  height: $loader-size;
-  margin: 0 auto;
-  top: 50%;
-}
+  &__bounce {
+    position: relative;
+    width: $loader-size;
+    height: $loader-size;
+    margin: 0 auto;
+    top: 50%;
 
-.loading-container__bounce::before,
-.loading-container__bounce::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 3px solid transparent;
-  border-radius: 50%;
-  animation: spin $loader-duration linear infinite;
-}
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 3px solid transparent;
+      border-radius: 50%;
+      animation: spin $loader-duration linear infinite;
+    }
 
-.loading-container__bouncer::before {
-  border-top-color: $loader-color;
-  border-bottom-color: $loader-color;
-  animation-delay: 0.5s;
-}
+    &::before {
+      border-top-color: $loader-color;
+      border-bottom-color: $loader-color;
+      animation-delay: 0.5s;
+    }
 
-.loading-container__bounce::after {
-  border-left-color: $loader-color;
-  border-right-color: $loader-color;
+    &::after {
+      border-left-color: $loader-color;
+      border-right-color: $loader-color;
+    }
+  }
 }
 
 @keyframes spin {
