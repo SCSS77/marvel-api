@@ -94,7 +94,7 @@
 .search-bar__button {
   position: absolute;
   left: 0;
-  top: 15px;
+  margin-top: 4px;
   width: 15px;
   height: 15px;
   cursor: pointer;
