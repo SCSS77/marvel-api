@@ -8,7 +8,7 @@ import SearchBar from '@/components/SeachBar'
 import { useFavorites } from '@/hooks/useFavorites'
 import FavoritesLayout from '@/pages/favorites/layout'
 import Loader from '@/components/Loader'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 export default function FavoritesPage () {
   const [searchQuery] = useState('')

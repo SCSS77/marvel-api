@@ -8,7 +8,7 @@ import SearchBar from '@/components/SeachBar'
 import { useFavorites } from '@/hooks/useFavorites'
 import ResultsLayout from './layout'
 import Loader from '@/components/Loader'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 const ResultsPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('')

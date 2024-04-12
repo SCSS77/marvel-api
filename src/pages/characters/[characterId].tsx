@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 import CharacterLayout from '@/pages/characters/layout'
 import Header from '@/components/Header'
 import Loader from '@/components/Loader'
