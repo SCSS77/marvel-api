@@ -3,9 +3,7 @@
 <br />
 
 <p align="center" dir="auto">
-  <a aria-label="Vercel logo" href="https://vercel.com" rel="nofollow">
     <img src="https://img.shields.io/badge/MADE%20BY%20Vercel-000000.svg?style=for-the-badge&amp;logo=Vercel&amp;labelColor=000" data-canonical-src="https://img.shields.io/badge/MADE%20BY%20Vercel-000000.svg?style=for-the-badge&amp;logo=Vercel&amp;labelColor=000" style="max-width: 100%;">
-  </a>
   <a aria-label="NPM version" href="https://www.npmjs.com/package/next" rel="nofollow">
     <img alt="" src="https://camo.githubusercontent.com/c2d412c35131fe13ccdee4ddf7879f5cffe90509f2bf0540b5428d76ded71476/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f6e6578742e7376673f7374796c653d666f722d7468652d6261646765266c6162656c436f6c6f723d303030303030" data-canonical-src="https://img.shields.io/npm/v/next.svg?style=for-the-badge&amp;labelColor=000000" style="max-width: 100%;">
   </a>
