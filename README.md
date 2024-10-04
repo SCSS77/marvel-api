@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/SCSS77/marvel-api/refs/heads/master/public/banner-next-react.jpeg?token=GHSAT0AAAAAACYO5VL2UQQTTBBYBGMUX3T4ZYACTPA" alt="react boilerplate banner" align="center" />
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/SCSS77/marvel-api/refs/heads/master/public/banner-next-react.jpeg?token=GHSAT0AAAAAACYO5VL2UQQTTBBYBGMUX3T4ZYACTPA"><img src="https://raw.githubusercontent.com/SCSS77/marvel-api/refs/heads/master/public/banner-next-react.jpeg?token=GHSAT0AAAAAACYO5VL2UQQTTBBYBGMUX3T4ZYACTPA" alt="react boilerplate banner" align="center" style="max-width: 100%;"></a>
 
 <br />
 
