@@ -1,7 +1,5 @@
 <img src="https://raw.githubusercontent.com/SCSS77/marvel-api/refs/heads/master/public/banner-next-react.jpeg?token=GHSAT0AAAAAACYO5VL3PWTHT2OSSYVAOVLMZYAC5XA" alt="react boilerplate banner" align="center" style="max-width: 100%;">
 
-<br />
-
 ## About
 
 This project is a ReactJS-based system showcasing the roster of characters from Marvel Comics, leveraging data sourced from the "Marvel API". Alongside presenting the comprehensive character list, the navigation bar features a search input field and button for users to locate specific characters by name. Furthermore, clicking on the details link directs users to a dedicated page offering extensive character information, including a list of associated comic books.
