@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/SCSS77/marvel-api/master/public/banner-next-react.jpeg" alt="react boilerplate banner" align="center" />
+<img src="https://raw.githubusercontent.com/SCSS77/marvel-api/refs/heads/master/public/banner-next-react.jpeg?token=GHSAT0AAAAAACYO5VL2UQQTTBBYBGMUX3T4ZYACTPA" alt="react boilerplate banner" align="center" />
 
 <br />
 
